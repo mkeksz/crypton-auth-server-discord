@@ -24,6 +24,11 @@ app.get('/', async ({query}, response) => {
     return response.redirect(config.DISCORD_INVITE_LINK)
 })
 
+app.get('/robots.txt', (req, res) => {
+    res.type('text/plain');
+    res.send('User-agent: *\nDisallow: /')
+})
+
 const httpServer = http.createServer(app)
 httpServer.listen(8080)
 
